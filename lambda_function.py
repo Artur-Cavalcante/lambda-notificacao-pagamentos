@@ -18,6 +18,7 @@ def lambda_handler(event: SQSEvent, context) -> dict:
             "body": "Sucesso"
         }
     except Exception as ex:
+        logger.error(f"Erro ao processar notificação: {ex}")
         return {
             "status_code": 500,
             "body": "Erro ao processar evento"
