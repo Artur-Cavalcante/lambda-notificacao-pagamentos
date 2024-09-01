@@ -12,7 +12,7 @@ def lambda_handler(event: SQSEvent, context) -> dict:
     try:
         for record in event.records:
             logger.info(f"Event: {record.body}")
-            notificacao_service.enviar_notificacao(record.body)
+            notificacao_service.enviar_notificacao(json.loads(record.body))
         return {
             "status_code": 200,
             "body": "Sucesso"
