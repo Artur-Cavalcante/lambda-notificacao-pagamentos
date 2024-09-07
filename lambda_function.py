@@ -4,7 +4,7 @@ from aws_lambda_powertools.utilities.data_classes import event_source, SQSEvent
 
 from src.notificacao_service import NotificacaoService
 
-logger = Logger(service="notificacao-pagamentos")
+logger = Logger(service="notificacao-pagamentos") 
 notificacao_service = NotificacaoService(logger)
 
 @event_source(data_class=SQSEvent)
